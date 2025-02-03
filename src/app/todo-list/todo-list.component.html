@@ -1,0 +1,10 @@
+<mat-list role="list">
+  @for (todo of todolist; track $index ) {
+  <mat-list-item role="listitem">
+    {{ todo }}
+    <button mat-icon-button (click)="deleteItem(todo)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+  }
+</mat-list>

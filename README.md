@@ -9,6 +9,9 @@ cd /Applications/XAMPP/htdocs/dashboard/PROJECTS
 ng new todo-app
 cd todo-app
 cd /Applications/XAMPP/htdocs/dashboard/PROJECTS/todo-app
-sudo chown -R $(whoami) ~/.npm
+
+<!-- sudo chown -R $(whoami) ~/.npm -->
+
 npm install
+ng add @angular/material
 npm start

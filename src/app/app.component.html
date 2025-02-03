@@ -1,5 +1,16 @@
-<main class="main">
-  <div class="content">
-    <router-outlet></router-outlet>
+<app-header> </app-header>
+<div class="container">
+  <form class="todo-input">
+    <mat-form-field [appearance]="'outline'" class="input-full-width">
+      <mat-label>Todo</mat-label>
+      <input matInput [(ngModel)]="todo" name="Faire les courses" />
+    </mat-form-field>
+  </form>
+  <div class="validation">
+    <button mat-raised-button (click)="onAddItem(todo)">Ajouter</button>
   </div>
-</main>
+  <app-todo-list
+    [todolist]="list"
+    (onDeleteItem)="deleteItemInList($event)"
+  ></app-todo-list>
+</div>

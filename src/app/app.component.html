@@ -1,13 +1,13 @@
-<app-header> </app-header>
+<!-- <app-header> </app-header> -->
 <div class="container">
   <form class="todo-input">
     <mat-form-field [appearance]="'outline'" class="input-full-width">
       <mat-label>Todo</mat-label>
-      <input matInput [(ngModel)]="todo" name="Faire les courses" />
+      <input matInput [formControl]="fc" name="Faire les courses" />
     </mat-form-field>
   </form>
   <div class="validation">
-    <button mat-raised-button (click)="onAddItem(todo)">Ajouter</button>
+    <button mat-raised-button (click)="addItem(todo)">Ajouter</button>
   </div>
   <app-todo-list
     [todolist]="list"

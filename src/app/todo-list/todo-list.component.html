@@ -1,11 +1,21 @@
 <mat-list role="list">
   @for (item of todoList; track $index) {
   <mat-list-item role="listitem">
-    <span [class]="item.isDone ? 'done' : 'undone'">{{item.name}}</span>
-    <button mat-icon-button matListItemMeta (click)="doneTodo(item)" [disabled]="item.isDone">
-      <mat-icon>check</mat-icon>
+    <!-- Show input when editing, otherwise show the name -->
+    <span *ngIf="!item.isEditing" [class]="item.isDone ? 'done' : 'undone'">
+      {{ item.name }}
+    </span>
+    <input *ngIf="item.isEditing" [(ngModel)]="item.name" (blur)="saveEdit(item)" />
+
+    <button mat-icon-button matListItemMeta (click)="toggleDone(item)">
+      <mat-icon>{{ item.isDone ? 'undo' : 'check' }}</mat-icon>
     </button>
-    <button mat-icon-button matListItemMeta (click)="deleteTodo(item)">
+
+    <button mat-icon-button matListItemMeta (click)="editTodo(item)">
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button mat-icon-button matListItemMeta (click)="onDeleteTodo.emit(item.id)">
       <mat-icon>delete</mat-icon>
     </button>
   </mat-list-item>

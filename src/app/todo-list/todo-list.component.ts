@@ -1,20 +1,19 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-todo-list',
-  imports: [MatListModule, MatIconModule, MatIconButton],
+  imports: [MatListModule, MatIconModule, MatButtonModule],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss',
 })
 export class TodoListComponent {
-  @Input() public todolist: string[] = [];
+  @Input() public todoList: ITodo[] = [];
 
-  @Output() public onDeleteItem = new EventEmitter<string>();
+  @Output() public onDeleteTodo = new EventEmitter<string>();
 
-  public deleteItem(itemName: string): void {
-    this.onDeleteItem.emit(itemName);
+  public deleteTodo(todo: string): void {
+    this.onDeleteTodo.emit(todo);
   }
 }

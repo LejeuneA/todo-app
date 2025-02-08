@@ -1,0 +1,20 @@
+.container {
+    width: 80vw;
+    padding-top: 20px;
+    margin: auto;
+}
+
+.todo-form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+
+    .todo-full-width {
+        width: 100%;
+    }
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}

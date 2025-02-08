@@ -1,16 +1,16 @@
-<!-- <app-header> </app-header> -->
+<app-header></app-header>
 <div class="container">
-  <form class="todo-input">
-    <mat-form-field [appearance]="'outline'" class="input-full-width">
-      <mat-label>Todo</mat-label>
-      <input matInput [formControl]="fc" name="Faire les courses" />
+  <form class="todo-form">
+    <mat-form-field class="todo-full-width">
+      <mat-label>Tasks to do</mat-label>
+      <input [formControl]="fc" matInput placeholder="Tasks to do" />
     </mat-form-field>
   </form>
-  <div class="validation">
-    <button mat-raised-button (click)="addItem(todo)">Ajouter</button>
+  <div class="flex-end">
+    <button mat-stroked-button (click)="addItemInList()">Submit</button>
   </div>
   <app-todo-list
-    [todolist]="list"
-    (onDeleteItem)="deleteItemInList($event)"
+    [id]="todos"
+    (onDeleteTodo)="removeItemFromList($event)"
   ></app-todo-list>
 </div>

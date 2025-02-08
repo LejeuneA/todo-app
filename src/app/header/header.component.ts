@@ -1,12 +1,10 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
+import { Component } from '@angular/core';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-header',
-  imports: [MatListModule, MatIconModule, MatIconButton],
-  templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.scss',
+  imports: [MatToolbarModule],
+  templateUrl: './header.component.html',
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {}

@@ -60,4 +60,9 @@ export class AppComponent {
       console.log(this.todos);
     }
   }
+
+  public updateTodoInList(todo: ITodo): void {
+    this.todoService.updateTodo(todo);
+    this.todos = this.todoService.getList();
+  }
 }

@@ -57,3 +57,21 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+npm -v
+node -v
+brew install node
+npm install -g @angular/cli
+ng add @angular/material
+ng version
+cd /Applications/XAMPP/htdocs/dashboard/PROJECTS
+ng new todo-app
+cd todo-app
+cd /Applications/XAMPP/htdocs/dashboard/PROJECTS/todo-app
+
+<!-- sudo chown -R $(whoami) ~/.npm -->
+
+ng g c <nomDuComponent>
+ng g service services/todo
+npm install
+npm run start

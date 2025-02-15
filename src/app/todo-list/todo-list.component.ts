@@ -36,7 +36,7 @@ export class TodoListComponent {
   }
 
   public toggleDone(todo: ITodo): void {
-    todo.isDone = !todo.isDone; // Toggle status
-    this.onTodoDone.emit(todo.id); // Emit the event with the todo ID
+    todo.isDone = !todo.isDone;
+    this.onTodoDone.emit(todo.id);
   }
 }

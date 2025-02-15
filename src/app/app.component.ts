@@ -61,6 +61,11 @@ export class AppComponent {
     }
   }
 
+  public editTodoInList(todo: ITodo): void {
+    this.todoService.updateTodo(todo);
+    this.todos = this.todoService.getList();
+  }
+
   public updateTodoInList(todo: ITodo): void {
     this.todoService.updateTodo(todo);
     this.todos = this.todoService.getList();

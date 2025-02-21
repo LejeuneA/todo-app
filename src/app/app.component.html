@@ -3,7 +3,7 @@
   <form class="todo-form">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Tâche à effectuer</mat-label>
-      <input [formControl]="fc" matInput placeholder="Ex. Faire les courses" />
+      <input [formControl]="fc" matInput placeholder="Ex. Faire les courses">
       @if (fc.hasError('required')) {
       <mat-error>Attention le champs requis est vide</mat-error>
       } @else if (fc.hasError('minlength')) {
@@ -12,18 +12,9 @@
     </mat-form-field>
   </form>
   <div class="flex-end">
-    <button
-      mat-stroked-button
-      [disabled]="fc.invalid"
-      (click)="addItemInList()"
-    >
-      Valider
-    </button>
+    <button mat-stroked-button [disabled]="fc.invalid" (click)="addItemInList()">Valider</button>
   </div>
-  <app-todo-list
-    [todoList]="todos"
-    (onDeleteTodo)="removeItemFromList($event)"
-    (onTodoDone)="setDone($event)"
-    (onUpdateTodo)="updateTodoInList($event)"
-  ></app-todo-list>
+  <app-todo-list [todoList]="todos" (onDeleteTodo)="removeItemFromList($event)"
+    (onToggleTodoDone)="toggleDone($event)" (onTodoUpdated)="updateTodo($event)">
+  </app-todo-list>
 </div>

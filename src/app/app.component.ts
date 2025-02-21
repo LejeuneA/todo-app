@@ -51,23 +51,17 @@ export class AppComponent {
     this.todos = this.todoService.getList();
   }
 
-  public setDone(id: string): void {
+  public updateTodo(todo: ITodo): void {
+    this.todoService.updateTodo(todo);
+    this.todos = this.todoService.getList();
+  }
+
+  public toggleDone(id: string): void {
     const todo = this.todoService.getItemById(id);
     if (todo) {
-      todo.isDone = true;
+      todo.isDone = !todo.isDone;
       this.todoService.updateTodo(todo);
       this.todos = this.todoService.getList();
-      console.log(this.todos);
     }
-  }
-
-  public editTodoInList(todo: ITodo): void {
-    this.todoService.updateTodo(todo);
-    this.todos = this.todoService.getList();
-  }
-
-  public updateTodoInList(todo: ITodo): void {
-    this.todoService.updateTodo(todo);
-    this.todos = this.todoService.getList();
   }
 }

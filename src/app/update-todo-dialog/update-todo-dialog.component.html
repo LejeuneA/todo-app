@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Modifier ma TODO : {{data.currentName}}</h2>
+<mat-dialog-content>
+    <p>Nouveau nom de la TODO</p>
+    <mat-form-field [appearance]="'outline'">
+        <mat-label>Description</mat-label>
+        <input matInput [formControl]="fc" />
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button [disabled]="fc.invalid" [mat-dialog-close]="fc.value">Ok</button>
+</mat-dialog-actions>

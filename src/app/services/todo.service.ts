@@ -14,13 +14,16 @@ import { StringHelper } from '../helpers/string.helper';
   providedIn: 'root', // service disponible partout dans l'application
 })
 export class TodoService {
-  private _list: ITodo[] = [
-    { name: 'TODO 1', isDone: false, id: StringHelper.getMostlyUniqId() },
-    { name: 'TODO 2', isDone: false, id: StringHelper.getMostlyUniqId() },
-    { name: 'TODO 3', isDone: false, id: StringHelper.getMostlyUniqId() },
-  ];
+  private _list: ITodo[] = [];
 
-  constructor() {}
+  private readonly LOCAL_STORAGE_KEY = 'TODOS';
+
+  constructor() {
+    const existingTodos = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    if (existingTodos) {
+      this._list = JSON.parse(existingTodos);
+    }
+  }
 
   public getList(): ITodo[] {
     return this._list;
@@ -32,10 +35,12 @@ export class TodoService {
 
   public create(data: ITodo): void {
     this._list.push(data);
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this._list));
   }
 
   public deleteTodo(id: string): void {
     this._list = this._list.filter((todo) => todo.id !== id);
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this._list));
   }
 
   public updateTodo(data: ITodo): void {
@@ -44,5 +49,6 @@ export class TodoService {
       todo.name = data.name;
       todo.isDone = data.isDone;
     }
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(this._list));
   }
 }

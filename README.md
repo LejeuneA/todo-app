@@ -76,3 +76,7 @@ ng g c <nomDuComponent>
 ng g service services/todo
 npm install
 npm run start
+
+cd /c/xampp/htdocs/dashboard/PROJECTS
+ng new positive-quotes-app --routing --style=scss
+cd positive-quotes-app

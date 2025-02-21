@@ -65,6 +65,7 @@ npm install -g @angular/cli
 ng add @angular/material
 ng version
 cd /Applications/XAMPP/htdocs/dashboard/PROJECTS
+cd /c/xampp/htdocs/dashboard/PROJECTS/positive-quotes-app
 ng new todo-app
 cd todo-app
 cd /Applications/XAMPP/htdocs/dashboard/PROJECTS/todo-app

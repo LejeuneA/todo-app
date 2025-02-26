@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="todo-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tâche à effectuer</mat-label>
+      <input [formControl]="fc" matInput placeholder="Ex. Faire les courses" />
+      @if (fc.hasError('required')) {
+      <mat-error>Attention le champs requis est vide</mat-error>
+      } @else if (fc.hasError('minlength')) {
+      <mat-error>Attention le champs doit faire 3 caractères minimum</mat-error>
+      }
+    </mat-form-field>
+  </form>
+  <div class="flex-end">
+    <button
+      mat-stroked-button
+      [disabled]="fc.invalid"
+      (click)="addItemInList()"
+    >
+      Valider
+    </button>
+  </div>
+  <app-todo-list
+    [todoList]="todos"
+    (onDeleteTodo)="removeItemFromList($event)"
+    (onToggleTodoDone)="toggleDone($event)"
+    (onTodoUpdated)="updateTodo($event)"
+  >
+  </app-todo-list>
+</div>
